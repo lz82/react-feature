@@ -1,7 +1,6 @@
 import React, { Component, createContext } from "react";
 
 const ThemeContext = createContext("light");
-const SizeContext = createContext("small");
 
 export default class ContextType extends Component {
   constructor() {
@@ -18,64 +17,48 @@ export default class ContextType extends Component {
     });
   }
 
-  handleSizeChange(e) {
-    this.setState({
-      size: e.target.value,
-    });
-  }
-
   render() {
     return (
       <ThemeContext.Provider value={this.state.theme}>
-        <SizeContext.Provider value={this.state.size}>
-          <div>context type</div>
-          <div>
-            <select
-              value={this.state.theme}
-              onChange={(e) => this.handleChange(e)}
-            >
-              <option>light</option>
-              <option>dark</option>
-            </select>
-          </div>
-          <div>
-            <select
-              value={this.state.size}
-              onChange={(e) => this.handleSizeChange(e)}
-            >
-              <option>small</option>
-              <option>big</option>
-            </select>
-          </div>
-
-          <ToolBar />
-        </SizeContext.Provider>
+        <div>context type</div>
+        <div>
+          <select
+            value={this.state.theme}
+            onChange={(e) => this.handleChange(e)}
+          >
+            <option>light</option>
+            <option>dark</option>
+          </select>
+        </div>
+        <ToolBar />
       </ThemeContext.Provider>
     );
   }
 }
 
 function ToolBar(props) {
-  return <ThemedButton {...props} />;
+  return (
+    <>
+      <ThemedButton {...props} />
+      <ThemeDiv {...props} />
+    </>
+  );
 }
 
 // 当有多个Context时
+// 使用contextType
 class ThemedButton extends Component {
   render() {
-    return (
-      <ThemeContext.Consumer>
-        {(theme) => (
-          <SizeContext.Consumer>
-            {(size) => (
-              <div>
-                theme: {theme}
-                <br />
-                size: {size}
-              </div>
-            )}
-          </SizeContext.Consumer>
-        )}
-      </ThemeContext.Consumer>
-    );
+    return <div>current theme: {this.context}</div>;
+  }
+}
+// 使用class的挂载属性contextType
+ThemedButton.contextType = ThemeContext;
+
+class ThemeDiv extends Component {
+  static contextType = ThemeContext;
+
+  render() {
+    return <div>use static context type: {this.context}</div>;
   }
 }
