@@ -12,6 +12,9 @@ export default function index() {
         <li>
           <Link to="/class/context-type">Context Type</Link>
         </li>
+        <li>
+          <Link to="/class/lazy">Lazy load</Link>
+        </li>
       </ul>
 
       <h1>Function Component</h1>

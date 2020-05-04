@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 
 import ContextBasic from "./context-basic";
 import ContextType from "./context-type";
+import LazyLoad from './lazy'
 
 export default class ClassComponent extends Component {
   render() {
@@ -18,6 +19,10 @@ export default class ClassComponent extends Component {
         <Route
           path="/class/context-type"
           render={(props) => <ContextType {...props} />}
+        />
+        <Route 
+          path="/class/lazy"
+          render={props => <LazyLoad {...props} />}
         />
       </div>
     );
