@@ -10,3 +10,4 @@
 错误边界只能用在`class`组件中，使用`static getDerivedStateFromError()`或者`componentDidCatch()`来捕获
 
 ## memo
+其实就是`function`版本的`PureComponent`

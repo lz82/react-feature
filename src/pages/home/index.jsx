@@ -15,6 +15,9 @@ export default function index() {
         <li>
           <Link to="/class/lazy">Lazy load</Link>
         </li>
+        <li>
+          <Link to="/class/memo">Memo</Link>
+        </li>
       </ul>
 
       <h1>Function Component</h1>
