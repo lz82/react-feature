@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 
-import ContextBasic from './context-basic'
-import ContextType from './context-type'
+import ContextBasic from "./context-basic";
+import ContextType from "./context-type";
 
 export default class ClassComponent extends Component {
   render() {
     return (
       <div>
+        <Link to="/">Back</Link>
         <h1>Class Component</h1>
         {this.props.children}
         <Route
