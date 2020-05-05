@@ -1,10 +1,9 @@
-import React, { Component, PureComponent } from "react";
+import React, { Component, PureComponent, memo } from "react";
 
-export default class Memo extends Component {
+export default class MemoComponent extends Component {
   constructor() {
     super();
     this.state = {
-      age: 18,
       userInfo: {
         age: 18,
         name: "lz",
@@ -13,29 +12,58 @@ export default class Memo extends Component {
   }
 
   handleClick = () => {
+    const userInfo = this.state.userInfo;
     this.setState({
       userInfo: {
-        age: 18,
-        name: "liuz",
+        ...userInfo,
+        age: userInfo.age + 1,
       },
     });
   };
 
   render() {
-    const { age } = this.state;
+    const { age } = this.state.userInfo;
     return (
       <div>
         <button onClick={this.handleClick}>add age</button>
-        <div>{this.state.age}</div>
+        <div>{age}</div>
         <ChlidComponent name={this.state.userInfo.name} />
+        <ChildPureComponent name={this.state.userInfo.name} />
+        <ChildPureComponent name={this.state.name} userInfo={this.state.userInfo} />
+        <ChildFunctionComponent name={this.state.userInfo.name} />
+        <ChildMemoComponent name={this.state.userInfo.name} />
+        <ChildMemoComponent name={this.state.userInfo.name} age={age} />
       </div>
     );
   }
 }
 
-class ChlidComponent extends PureComponent {
+class ChlidComponent extends Component {
   render() {
-    console.log("child render");
+    console.log("child component render");
     return <div>{this.props.name}</div>;
   }
 }
+
+class ChildPureComponent extends PureComponent {
+  render() {
+    console.log("child pureComponent render");
+    return (
+      <>
+        <div>{this.props.name} </div>
+        <div>{this.props.userInfo?.age}</div>
+      </>
+    );
+  }
+}
+
+function ChildFunctionComponent(props) {
+  console.log("child function component render");
+  return <div>{props.name}</div>;
+}
+
+// 当父组件内变化的内容不是
+const ChildMemoComponent = memo(function (props) {
+  console.log("child memo component render");
+  return <div>{props.name}</div>;
+});

@@ -11,3 +11,21 @@
 
 ## memo
 其实就是`function`版本的`PureComponent`
+目的就是在父组件重新渲染的时候，不要引起无关的子组件也重新渲染。
+
+# Hooks
+
+## useState
+使用`eslint-plugin-react-hooks`来检查hooks
+在`eslint-config`中增加相应的规则
+在`useState`中可以传入一个函数，来延迟初始化
+```
+// 这种写法会在每次组件重新渲染时，都执行一次defaultCnt的计算逻辑
+const defaultCnt = props.defaultCnt || 0;
+const [cnt, setCnt] = useState(defaultCnt)
+
+const [cnt, setCnt] = useState(() => {
+  // 函数的返回值就是state的初始值，这样，这个计算逻辑就只会执行一次
+  return props.defaultCnt || 0
+})
+```
