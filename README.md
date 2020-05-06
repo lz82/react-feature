@@ -29,3 +29,5 @@ const [cnt, setCnt] = useState(() => {
   return props.defaultCnt || 0
 })
 ```
+
+## useEffect

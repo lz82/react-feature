@@ -25,6 +25,9 @@ export default function index() {
         <li>
           <Link to="/function/use-state">useState</Link>
         </li>
+        <li>
+          <Link to="/function/use-effect">useEffect</Link>
+        </li>
       </ul>
     </div>
   );
