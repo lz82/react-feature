@@ -5,6 +5,7 @@ import UseState from "./use-state";
 import UseEffect from './ues-effect'
 import UseContext from './use-context'
 import UseMemoCb from './use-memo-cb'
+import UseRef from './use-ref'
 
 export default function FunctionComponent(props) {
   return (
@@ -27,6 +28,10 @@ export default function FunctionComponent(props) {
       <Route 
         path="/function/use-memo-cb"
         render={props => <UseMemoCb {...props} />}
+      />
+      <Route 
+        path="/function/use-ref"
+        render={props => <UseRef {...props} />}
       />
     </div>
   );

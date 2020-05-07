@@ -63,3 +63,8 @@ const cb = useMemo(() => {
 
 const cb = useCallback(() => fn(), [arg])
 ```
+
+## useRef
+主要有两个用途：
+1. 获取Dom元素
+2. 保存变量（否则每次组件重新渲染都被重置了）

@@ -34,6 +34,9 @@ export default function index() {
 				<li>
 					<Link to="/function/use-memo-cb">use memo & callback</Link>
 				</li>
+				<li>
+					<Link to="/function/use-ref">use ref</Link>
+				</li>
 			</ul>
 		</div>
 	);
