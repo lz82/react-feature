@@ -23,10 +23,13 @@ export default function index() {
       <h1>Function Component</h1>
       <ul>
         <li>
-          <Link to="/function/use-state">useState</Link>
+          <Link to="/function/use-state">use state</Link>
         </li>
         <li>
-          <Link to="/function/use-effect">useEffect</Link>
+          <Link to="/function/use-effect">use effect</Link>
+        </li>
+        <li>
+          <Link to="/function/use-context">use context</Link>
         </li>
       </ul>
     </div>

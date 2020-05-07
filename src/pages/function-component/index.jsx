@@ -3,12 +3,13 @@ import { Route, Link } from "react-router-dom";
 
 import UseState from "./use-state";
 import UseEffect from './ues-effect'
+import UseContext from './use-context'
 
 export default function FunctionComponent(props) {
   return (
     <div>
       <Link to="/">Back</Link>
-      <h1>function Component</h1>
+      <h1>function Component</h1> 
       {props.children}
       <Route
         path="/function/use-state"
@@ -17,6 +18,10 @@ export default function FunctionComponent(props) {
       <Route 
         path="/function/use-effect"
         render={props => <UseEffect {...props} />}
+      />
+      <Route 
+        path="/function/use-context"
+        render={props => <UseContext {...props} />}
       />
     </div>
   );

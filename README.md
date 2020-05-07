@@ -31,3 +31,20 @@ const [cnt, setCnt] = useState(() => {
 ```
 
 ## useEffect
+副作用的概念源自纯函数
+
+分需要清除的副作用和不需要清除的副作用
+
+`useEffect`在组件渲染完成之后才会运行
+
+在`useEffect`返回一个函数，那么在组件销毁时，则会自动执行清除副作用的这个函数
+
+使用`useEffect`和之前使用生命周期来实现副作用相比，有一个优点是实现关注点分离
+
+## useContext
+`contex.Provider`的用法和Class中的一样
+区别在于不像在Class中使用`ContextType`时只能使用一个的局限性来
+
+使用`const cxt = useContext(React.CreateContext())`即可获取到Context中的值
+
+## useMemo && useCallback
