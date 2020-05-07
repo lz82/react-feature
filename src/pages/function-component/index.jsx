@@ -7,6 +7,7 @@ import UseContext from "./use-context";
 import UseMemoCb from "./use-memo-cb";
 import UseRef from "./use-ref";
 import CustomHook from "./custom-hook";
+import TodoList from './todo-list'
 
 export default function FunctionComponent(props) {
   return (
@@ -37,6 +38,10 @@ export default function FunctionComponent(props) {
       <Route
         path="/function/custom-hook"
         render={(props) => <CustomHook {...props} />}
+      />
+      <Route 
+        path="/function/todo-list"
+        render={props => <TodoList {...props} />}
       />
     </div>
   );

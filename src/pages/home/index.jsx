@@ -40,6 +40,9 @@ export default function index() {
         <li>
           <Link to="/function/custom-hook">custom hook</Link>
         </li>
+        <li>
+          <Link to="/function/todo-list">todo list</Link>
+        </li>
       </ul>
     </div>
   );
