@@ -48,3 +48,18 @@ const [cnt, setCnt] = useState(() => {
 使用`const cxt = useContext(React.CreateContext())`即可获取到Context中的值
 
 ## useMemo && useCallback
+`useMemo`是在渲染期间执行的，这是和useEffect比较大的区别
+
+`useCallback`的使用场景是，在做为事件句柄传递给子组件的时候，因为每次都会变化，导致子组件会重复渲染，因此如果使用`useCallback`返回一个不变化的句柄，传入子组件的话，子组件就不会每次变化
+
+```
+const cb = useMemo(() => {
+  return () => {
+    fn()
+  }
+}, [arg])
+
+如果在useMemo中返回一个函数，那么就等价于useCallback中直接调用这个函数
+
+const cb = useCallback(() => fn(), [arg])
+```

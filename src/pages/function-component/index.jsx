@@ -4,6 +4,7 @@ import { Route, Link } from "react-router-dom";
 import UseState from "./use-state";
 import UseEffect from './ues-effect'
 import UseContext from './use-context'
+import UseMemoCb from './use-memo-cb'
 
 export default function FunctionComponent(props) {
   return (
@@ -22,6 +23,10 @@ export default function FunctionComponent(props) {
       <Route 
         path="/function/use-context"
         render={props => <UseContext {...props} />}
+      />
+      <Route 
+        path="/function/use-memo-cb"
+        render={props => <UseMemoCb {...props} />}
       />
     </div>
   );
